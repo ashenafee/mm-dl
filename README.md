@@ -10,7 +10,7 @@ A guide on how to install FFmpeg can be found here for [macOS](https://superuser
 
 ## Usage
 ---
-1. Download the latest release from [here]().
+1. Download the latest release from [here](https://github.com/ashenafee/mm-dl/releases/download/1.0/mm-dl).
 2. Open a Terminal/Command Prompt window.
 
     If you're on Windows, open the Command Prompt as administrator.
