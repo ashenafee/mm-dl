@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if [ $# -ne 2 ]
+then
+    echo "Usage: ./mm-dl <MY_MEDIA_LINK> <FILENAME>"
+    exit 1
+fi
+
+ID=${1:(-32)}
+FFMPEG="ffmpeg-bar"
+
+echo "Downloading MyMedia ID: '$ID'"
+$FFMPEG -i "https://stream.library.utoronto.ca:1935/MyMedia/play/mp4:1/$ID.mp4/playlist.m3u8" -codec copy "$PWD/$2.mkv"
+echo "Success: MyMedia video '$ID' has been downloaded!"
