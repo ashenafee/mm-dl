@@ -1,5 +1,6 @@
 import sys
 import os
+import requests
 from shutil import which
 
 
@@ -11,6 +12,21 @@ if (len(sys.argv) != 3):
 # Check if ffmpeg is in path
 if (which("ffmpeg") == None):
     print("ffmpeg not found in PATH.\nPlease install ffmpeg from https://ffmpeg.org.")
+
+    # Ask whether to install ffmpeg locally
+    print("\nDo you want to install ffmpeg locally? (y/n)")
+    if (input() == "y"):
+        print("Downloading ffmpeg...")
+        
+        # Check if macOS or Windows
+        if (sys.platform == "darwin"):
+            r = requests.get("https://evermeet.cx/ffmpeg/ffmpeg-5.0.7z")
+        elif (sys.platform == "win32"):
+            r = requests.get("https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip", allow_redirects=True)
+        
+        open("ffmpeg-release-essentials.zip", "wb").write(r.content)
+        print("Extracting ffmpeg...")
+        os.system("unzip ffmpeg-release-essentials.zip")
     exit(1)
 
 # Check if ffmpeg-bar is installed
