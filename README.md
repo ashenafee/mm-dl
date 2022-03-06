@@ -33,20 +33,13 @@ A guide on how to install FFmpeg can be found here for [macOS](https://superuser
     | macOS   | `sudo npm install --global ffmpeg-progressbar-cli`      |
     | Windows | `npm install --global ffmpeg-progressbar-cli` |
 
-5. Type in the following to make the binary executable:
-
-    | OS      | Command                               |
-    |:--------|:--------------------------------------|
-    | macOS   | `chmod +x mm-dl`      |
-    | Windows | `COMING SOON` |
-
-6. After installing the dependency, type in `./mm-dl` and hit enter. You should see the following as output:
+5. After installing the dependency, type in `python3 mm-dl.py` and hit enter. You should see the following as output:
 
     ```
-    Usage: ./mm-dl <MY_MEDIA_LINK> <FILENAME>
+    Usage: python3 mm-dl.py <MY_MEDIA_LINK> <FILENAME>
     ```
 
-7. Try typing in `./mm-dl X Y` where `X` is your video link, and `Y` is the name you want to give the file. You should see:
+7. Try typing in `python3 mm-dl.py X Y` where `X` is your video link, and `Y` is the name you want to give the file. You should see:
 
     ```
     Downloading MyMedia ID: '...'
@@ -54,11 +47,11 @@ A guide on how to install FFmpeg can be found here for [macOS](https://superuser
     Success: MyMedia video '...' has been downloaded!
     ```
 
-8. In Finder/File Explorer, navigate to the folder containing `mm-dl` (the file from step 1) and you should see your video `.mkv` downloaded.
+8. In Finder/File Explorer, navigate to the folder containing `mm-dl.py` (the file from step 1) and you should see your video `.mkv` downloaded.
 
 ## Disclaimer
 ---
-mm-dl is a script to ease the process of downloading videos from MyMedia. It uses [ffmpeg](https://ffmpeg.org) and [ffmpeg-progressbar-cli](https://github.com/sidneys/ffmpeg-progressbar-cli) which carry out downloading.
+mm-dl is a Python script to ease the process of downloading videos from MyMedia. It uses [ffmpeg](https://ffmpeg.org) and [ffmpeg-progressbar-cli](https://github.com/sidneys/ffmpeg-progressbar-cli) which carry out downloading.
 
 I am not responsible for any copyright infringement. Additionally, I am not responsible for any inappropriate use of this tool, and I am not responsible for any loss of data or other damages.
 
