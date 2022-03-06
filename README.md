@@ -33,13 +33,20 @@ A guide on how to install FFmpeg can be found here for [macOS](https://superuser
     | macOS   | `sudo npm install --global ffmpeg-progressbar-cli`      |
     | Windows | `npm install --global ffmpeg-progressbar-cli` |
 
-5. After installing the dependency, type in `./mm-dl` and hit enter. You should see the following as output:
+5. Type in the following to make the binary executable:
+
+    | OS      | Command                               |
+    |:--------|:--------------------------------------|
+    | macOS   | `chmod +x mm-dl`      |
+    | Windows | `COMING SOON` |
+
+6. After installing the dependency, type in `./mm-dl` and hit enter. You should see the following as output:
 
     ```
     Usage: ./mm-dl <MY_MEDIA_LINK> <FILENAME>
     ```
 
-6. Try typing in `./mm-dl X Y` where `X` is your video link, and `Y` is the name you want to give the file. You should see:
+7. Try typing in `./mm-dl X Y` where `X` is your video link, and `Y` is the name you want to give the file. You should see:
 
     ```
     Downloading MyMedia ID: '...'
@@ -47,7 +54,7 @@ A guide on how to install FFmpeg can be found here for [macOS](https://superuser
     Success: MyMedia video '...' has been downloaded!
     ```
 
-7. In Finder/File Explorer, navigate to the folder containing `mm-dl` (the file from step 1) and you should see your video `.mkv` downloaded.
+8. In Finder/File Explorer, navigate to the folder containing `mm-dl` (the file from step 1) and you should see your video `.mkv` downloaded.
 
 ## Disclaimer
 ---
