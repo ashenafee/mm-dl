@@ -1,23 +1,19 @@
 # mm-dl
-*A script to download MyMedia videos using ffmpeg.*
+*A script to download MyMedia videos using Python and ffmpeg.*
 
 ## Prerequisites
----
-- [Node.js](https://nodejs.org/en/)
-- [FFmpeg](https://ffmpeg.org)
+- [Python 3.10+](https://www.python.org/downloads/)
 
-A guide on how to install FFmpeg can be found here for [macOS](https://superuser.com/questions/624561/install-ffmpeg-on-os-x) and for [Windows](https://www.wikihow.com/Install-FFmpeg-on-Windows).
-
-## Usage
----
-1. Download the latest release from [here](https://github.com/ashenafee/mm-dl/releases/download/1.0/mm-dl).
-2. Open a Terminal/Command Prompt window.
+## Installation
+1. Download the latest release from [here](https://github.com/ashenafee/mm-dl/archive/refs/heads/master.zip).
+2. Unzip the download.
+3. Open a Terminal/Command Prompt window.
 
     If you're on Windows, open the Command Prompt as administrator.
 
-3. Navigate to the folder containing the file you downloaded in step 1.
+4. Navigate to the folder containing the file you downloaded in step 1.
 
-    This can be done by typing `cd DIRECTORY`.
+    This can be done by typing `cd DIRECTORY`, where `DIRECTORY` is the path to the folder containing the file you downloaded in step 1.
 
     For example, if I downloaded the binary file to my **Downloads** folder, I might type in:
     
@@ -26,32 +22,32 @@ A guide on how to install FFmpeg can be found here for [macOS](https://superuser
     | macOS   | `cd "/Users/username/Downloads"`      |
     | Windows | `cd "C:\\Users\\username\\Downloads"` |
 
-4. Type in the following to install the [ffmpeg-progressbar-cli](https://github.com/sidneys/ffmpeg-progressbar-cli) dependency:
-
-    | OS      | Command                               |
-    |:--------|:--------------------------------------|
-    | macOS   | `sudo npm install --global ffmpeg-progressbar-cli`      |
-    | Windows | `npm install --global ffmpeg-progressbar-cli` |
-
-5. After installing the dependency, type in `python3 mm-dl.py` and hit enter. You should see the following as output:
+5. Type in `python3 mmdl.py` and hit enter. It should begin downloading the ffmpeg binary for your OS:
 
     ```
-    Usage: python3 mm-dl.py <MY_MEDIA_LINK> <FILENAME>
+    100% |██████████████████████████████| 24.2M/24.2M [00:06<00:00, 3.47MiB/s]
+    Usage: python3 main.py <link> <filename>
     ```
 
-7. Try typing in `python3 mm-dl.py X Y` where `X` is your video link, and `Y` is the name you want to give the file. You should see:
-
+## Usage
+1. To use `mmdl`, type in `python3 mmdl.py <link> <filename>` and hit enter.
     ```
-    Downloading MyMedia ID: '...'
-        Rendering ... | ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                 50% | ETA ...
-    Success: MyMedia video '...' has been downloaded!
+    Downloading:  100% |██████████████████████████████|
     ```
+2. The video will be downloaded to the same folder as the ``mmdl.py`` file.
 
-8. In Finder/File Explorer, navigate to the folder containing `mm-dl.py` (the file from step 1) and you should see your video `.mkv` downloaded.
+## Frequently Asked Questions (FAQs)
+
+### How do I run the script on Windows?
+
+Instead of typing `python3` in the commands, type in `python`.
+
+### What format does this download the videos in?
+
+The videos are downloaded in `.mp4` format for compatibility.
 
 ## Disclaimer
----
-mm-dl is a Python script to ease the process of downloading videos from MyMedia. It uses [ffmpeg](https://ffmpeg.org) and [ffmpeg-progressbar-cli](https://github.com/sidneys/ffmpeg-progressbar-cli) which carry out downloading.
+mm-dl is a Python script to ease the process of downloading videos from MyMedia. It uses [ffmpeg](https://ffmpeg.org) which carries out downloading.
 
 I am not responsible for any copyright infringement. Additionally, I am not responsible for any inappropriate use of this tool, and I am not responsible for any loss of data or other damages.
 
