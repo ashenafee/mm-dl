@@ -15,7 +15,7 @@
 
     This can be done by typing `cd DIRECTORY`, where `DIRECTORY` is the path to the folder containing the file you downloaded in step 1.
 
-    For example, if I downloaded the binary file to my **Downloads** folder, I might type in:
+    For example, if I downloaded and unzipped the archive in my **Downloads** folder, I might type in:
     
     | OS      | Command                               |
     |:--------|:--------------------------------------|
