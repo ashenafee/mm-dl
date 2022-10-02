@@ -1,6 +1,12 @@
-from download import install_ffmpeg, download
+
 import os
 import sys
+
+try:
+    from download import install_ffmpeg, download
+except ImportError as e:
+    # Install the modules
+    os.system('pip3 install -r requirements.txt')
 
 
 def check_ffmpeg() -> bool:
