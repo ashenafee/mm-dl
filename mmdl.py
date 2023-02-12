@@ -14,7 +14,9 @@ def check_ffmpeg() -> bool:
     Check if FFmpeg is installed.
     :return:
     """
-    return os.path.exists('ffmpeg')
+    # Check if ffmpeg is in the user's Downloads directory
+    dl_dir = f"{os.path.expanduser('~')}/Downloads/ffmpeg"
+    return os.path.exists('ffmpeg') or os.path.exists(dl_dir)
 
 
 def ask_filename() -> str:
@@ -41,7 +43,7 @@ def main():
         print('Usage: python3 mmdl.py <link> <filename>')
         exit(1)
 
-    download(sys.argv[1], filename)
+    download(sys.argv[1], filename, os.getcwd())
 
 
 if __name__ == '__main__':

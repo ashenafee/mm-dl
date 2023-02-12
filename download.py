@@ -41,22 +41,35 @@ def install_ffmpeg() -> None:
     os.chmod('ffmpeg/ffmpeg', 0o777)
 
 
-def download(link: str, filename: str) -> None:
+def download(link: str, filename: str, path: str) -> None:
     """
     Download a MyMedia video given a link to the video.
-    :param filename:
     :param link:
+    :param filename:
+    :param path:
     :return:
     """
     video = MyMedia(link)
     chunklist = video.get_chunklist()
 
-    # Download the video using ffmpeg
-    cmd = ['./ffmpeg/ffmpeg', '-i', chunklist, '-c', 'copy', filename + '.mp4']
+    # Configure save path
+    if path is not None:
+        save_path = f"{path}/{filename}"
+    else:
+        save_path = filename
 
-    process = subprocess.Popen(cmd, stdout=subprocess.PIPE,
-                               stderr=subprocess.STDOUT,
-                               universal_newlines=True)
+    # Download the video using ffmpeg
+    cmd = ['./ffmpeg/ffmpeg', '-i', chunklist, '-c', 'copy', save_path + '.mp4']
+
+    try:
+        process = subprocess.Popen(cmd, stdout=subprocess.PIPE,
+                                   stderr=subprocess.STDOUT,
+                                   universal_newlines=True)
+    except FileNotFoundError:
+        cmd[0] = f"{os.path.expanduser('~')}/Downloads/ffmpeg/ffmpeg"
+        process = subprocess.Popen(cmd, stdout=subprocess.PIPE,
+                                   stderr=subprocess.STDOUT,
+                                   universal_newlines=True)
     progress = tqdm(total=100, unit='%', unit_scale=True, desc='Downloading',
                     bar_format='{l_bar}{bar}|')
     duration = 0
