@@ -1,4 +1,3 @@
-
 import os
 import sys
 
@@ -14,9 +13,17 @@ def check_ffmpeg() -> bool:
     Check if FFmpeg is installed.
     :return:
     """
-    # Check if ffmpeg is in the user's Downloads directory
-    dl_dir = f"{os.path.expanduser('~')}/Downloads/ffmpeg"
-    return os.path.exists('ffmpeg') or os.path.exists(dl_dir)
+    # Check for the user's OS
+    if os.name == 'nt':
+        # Check if ffmpeg is in the downloads directory
+        dl_dir = f"{os.path.expanduser('~')}/Downloads/ffmpeg"
+
+        # Check if ffmpeg is in the current directory
+        return os.path.exists('ffmpeg.exe') or os.path.exists(dl_dir)
+    else:
+        # Check if ffmpeg is in the user's Downloads directory
+        dl_dir = f"{os.path.expanduser('~')}/Downloads/ffmpeg"
+        return os.path.exists('ffmpeg') or os.path.exists(dl_dir)
 
 
 def ask_filename() -> str:

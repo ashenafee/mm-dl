@@ -37,8 +37,16 @@ def install_ffmpeg() -> None:
     # Remove the zip file
     os.remove('ffmpeg.zip')
 
-    # Make the ffmpeg executable
-    os.chmod('ffmpeg/ffmpeg', 0o777)
+    if os.name == 'nt':
+        # Get the subdirectory name
+        subdirectory = os.listdir('ffmpeg')[0]
+
+        # Rename the ffmpeg executable
+        os.rename(f'./ffmpeg/{subdirectory}/bin/ffmpeg.exe', './ffmpeg.exe')
+        os.rename(f'./ffmpeg/{subdirectory}/bin/ffprobe.exe', './ffprobe.exe')
+    else:
+        # Make the ffmpeg executable
+        os.chmod('ffmpeg/ffmpeg', 0o777)
 
 
 def download(link: str, filename: str, path: str) -> None:
@@ -57,9 +65,12 @@ def download(link: str, filename: str, path: str) -> None:
         save_path = f"{path}/{filename}"
     else:
         save_path = filename
-
-    # Download the video using ffmpeg
-    cmd = ['./ffmpeg/ffmpeg', '-i', chunklist, '-c', 'copy', save_path + '.mp4']
+    
+    # Check OS
+    if os.name == 'nt':
+        cmd = ['ffmpeg.exe', '-i', chunklist, '-c', 'copy', save_path + '.mp4']
+    else:
+        cmd = ['./ffmpeg/ffmpeg', '-i', chunklist, '-c', 'copy', save_path + '.mp4']
 
     try:
         process = subprocess.Popen(cmd, stdout=subprocess.PIPE,

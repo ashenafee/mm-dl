@@ -4,3 +4,4 @@ ffmpeg
 .idea
 __pycache__
 .DS_Store
+*.exe
